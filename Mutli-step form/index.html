@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        article.a1 {
+            border-radius: 10px;
+            width: 368px;
+            margin: 0 auto;
+            margin-top: 164px;
+            padding: 32px;
+            background-color: #212936;
+            box-shadow: 0px 30px 100px 0px rgba(17, 23, 41, 0.05);
+        }
+
+        input.a1 {
+            background-color: #212936;
+            color: #4D5562;
+            border: 2px solid #4D5562;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+            width: 336px;
+            font: 1.25rem 14px;
+        }
+
+        * {
+            font-family: 'Inter';
+        }
+
+        button.a1 {
+            font-size: 14px;
+            text-align: center;
+            background: linear-gradient(#845EEE,#652CD1);
+            color: #FFFFFF;
+            border: 0px;
+            border-radius: 20px;
+            padding: 26px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: 130px;
+        }
+
+        h2.a1 {
+            font-size: 1.25rem;
+        }
+
+        label.a1 {
+            color: #A1A1A9;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        #s1 {
+            width: 600PX;
+            height: 22px;
+            display: inline-block;
+            color: #652CD1;
+            margin-right: auto;
+        }
+
+        #p1 {
+            margin-right: 16px;
+            margin-left: auto;
+            font-size: 12px;
+        }
+
+        .d1 {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        #c1, #c2, #c3 {
+            fill: red;
+        }
+    </style>
+</head>
+<body>
+    <article id="a1" class="a1">
+        <div id="d1">
+            <h2 class="a1">
+                Register
+            </h2>
+            <label for="name" class="a1">Name</label>
+            <br />
+            <input class="a1" id="name" type="text" placeholder="enter your name" />
+            <br />
+            <label class="a1" for="email">Email</label>
+            <br />
+            <input class="a1" id="email" type="email" placeholder="example@gmail.com" />
+            <button class="a1" onclick="next()">Continue</button>
+        </div>
+    </article>
+    <article>
+    </article>
+    <br />
+
+    <div class="d1">
+        <text id="p1"> test test test</text>
+        <svg id="s1">
+            <circle id="c1" r="5" cx="8" cy="9"></circle>
+            <circle id="c2" r="5" cx="32" cy="9"></circle>
+            <circle id="c3" r="5" cx="56" cy="9"></circle>
+        </svg>
+    </div>
+
+
+    <script type="text/javascript">
+        var n = 1;
+        function init(n) {
+            var p = document.getElementById("p1");
+            var v = document.getElementById("s1");
+            p.innerHTML = "step " + n + " of 3";
+            var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            c.setAttribute("id", "c" + (n + 3))
+            c.setAttribute("r", "8");
+            c.setAttribute("cx", "" + (8 + (24 * (n - 1))));
+            c.setAttribute("cy", "9");
+            c.setAttribute("fill","rgba(255,0,0,.5)")
+
+            v.appendChild(c);
+            console.log(c);
+            console.log(v);
+        }
+        function next() {
+            n++;
+            if (n === 3) {
+                return;
+            }
+            init(n);
+            var d = document.getElementById("d" + (n - 1));
+            console.log(d);
+            var d2 = document.getElementById("d" + n);
+            console.log(d2);
+            d.style.display = "none";
+            d2.style.display = "block";
+            var s = document.getElementById("s1");
+            var c = s.getElementsByTagName("circle");
+
+        }
+        init(1)
+    </script>
+</body>
+</html>
